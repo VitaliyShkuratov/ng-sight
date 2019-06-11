@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../../shared/order';
-import { SalesDataService } from '../../services/sales-data';
-
-let _salesData = new SalesDataService();
+import { SalesDataService } from '../../services/sales-data.service';
 
 @Component({
   selector: 'app-section-orders',
@@ -12,7 +10,7 @@ let _salesData = new SalesDataService();
 
 export class SectionOrdersComponent implements OnInit {
 
-  constructor(/*private _salesData: SalesDataService*/) { }
+  constructor(private _salesData: SalesDataService) { }
 
   orders: Order[];
   total = 0;
@@ -24,13 +22,12 @@ export class SectionOrdersComponent implements OnInit {
     this.getOrders();
   }
    getOrders(): void {
-       _salesData.getOrders(this.page, this.limit);
-      /* this._salesData.getOrders(this.page, this.limit)
+      this._salesData.getOrders(this.page, this.limit)
         .subscribe(res => {
         this.orders = res['page']['data'];
         this.total = res['page'].total;
         this.loading = false;
-      });*/
+      });
   }
   goToPrevious(): void {
     //console.log('Previous Button Clicked!');

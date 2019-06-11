@@ -5,6 +5,7 @@
     <table class="table table-inverse table-hover">
         <thead class="thead-dark">
             <tr>
+                <th>#</th>
                 <th>ID</th>
                 <th>Customer</th>
                 <th>Amount</th>
@@ -14,13 +15,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of orders">
+            <tr *ngFor="let order of orders; let i = index">
+                <td>{{ i + 1 }}</td>
                 <td>{{ order.id }}</td>
                 <td>{{ order.customer.name }}</td>
                 <td>{{ order.total }}</td>
                 <td>{{ order.placed | date: 'short' }}</td>
-                <td>{{ order.fulfilled | date: 'short' }}</td>
-                <td>Status</td>
+                <td>{{ order.completed | date: 'short' }}</td>
+                <td>{{ order.completed != null? 'Completed' : 'Not completed'}}</td>
             </tr>
         </tbody>
     </table>
