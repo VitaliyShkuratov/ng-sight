@@ -13,8 +13,8 @@ export class SalesDataService {
    }
 
    public getOrders(page, limit) {
-    this.http.get(this.accessPointUrl + page + '/' + limit, { headers: this.headers })
-    .subscribe(r => console.log(r));
+   /* this.http.get(this.accessPointUrl + page + '/' + limit, { headers: this.headers })
+    .subscribe(r => console.log(r));*/
     
     return this.http.get(this.accessPointUrl + page + '/' + limit, { headers: this.headers });
   }
