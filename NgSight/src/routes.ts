@@ -8,4 +8,4 @@ export const appRoutes: Routes = [
     { path: 'orders', component: SectionOrdersComponent },
     { path: 'health', component: SectionHealthComponent },
     { path: '', redirectTo: '/sales', pathMatch: 'full' }
-];
+]
